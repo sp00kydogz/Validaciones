@@ -1,0 +1,360 @@
+<Window x:Class="Validaciones.ExactitudWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:local="clr-namespace:Validaciones"
+        mc:Ignorable="d"
+        Title="ExactiudWindow" Height="Auto" Width="1280">
+        
+    <Grid Height="Auto" Width="Auto">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/> <!-- Fila 1 -->
+            <RowDefinition Height="Auto"/> <!-- Separador -->
+            <RowDefinition Height="Auto"/> <!-- Fila 2 -->
+            <RowDefinition Height="Auto"/> <!-- Separador -->
+            <RowDefinition Height="Auto"/> <!-- Fila 3 -->
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/> <!-- Columna 1 - Estandares de Trabajo -->
+            <ColumnDefinition Width="1"/>
+            <ColumnDefinition Width="Auto"/> <!-- Columna 2 - Muestras y estandares Adicionados -->
+        </Grid.ColumnDefinitions>
+        <Grid Margin="12" Column="0">
+            <!-- #########################################PARTE UNO######################################### -->
+            <!-- Inicio Datos de Estandares, Areas y Muestras -->
+            <Grid Margin="0" Column="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/> <!-- Áreas -->
+                    <ColumnDefinition Width="0"/> <!-- Separador-->
+                    <ColumnDefinition Width="Auto"/> <!-- Diluciones Muestra -->
+                </Grid.ColumnDefinitions>
+                <GroupBox Header="Estándares de Trabajo" Margin="0" Padding="5" HorizontalAlignment="Left" VerticalAlignment="Top">
+                    <Grid Height="Auto">
+                        <!-- Columnas -->
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/><!-- 0 -->
+                            <ColumnDefinition Width="10"/> <!-- Columna de Separacion -->
+                            <ColumnDefinition Width="Auto"/><!-- 2 -->
+                            <ColumnDefinition Width="10"/> <!-- Columna de Separacion -->
+                            <ColumnDefinition Width="Auto"/><!-- 4 -->
+                        </Grid.ColumnDefinitions>
+                        <!-- Celdas -->
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/> <!-- Fila 0 -->
+                            <RowDefinition Height="Auto"/> <!-- Fila 1 -->
+                        </Grid.RowDefinitions>
+                        <!-- Columna 0 ##############################################################################  -->
+                        <!-- ########## Encabezado #############-->
+                        <TextBlock Text="Áreas STD Trabajo" FontWeight="DemiBold" Grid.Row="0" Grid.Column="0" HorizontalAlignment="Center"/>
+                        <!-- Areas STD 1 -->
+                        <StackPanel Grid.Column="0" Grid.Row="1">
+                            <Grid Column="0" Row="1" Height="Auto">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"/> <!-- 1 inyeccion 1-->
+                                    <RowDefinition Height="Auto"/> <!-- 2 inyeccion 2-->
+                                    <RowDefinition Height="Auto"/> <!-- 3 inyeccion 3-->
+                                    <RowDefinition Height="Auto"/> <!-- 4 inyeccion 4-->
+                                    <RowDefinition Height="Auto"/> <!-- 5 inyeccion 5-->
+                                    <RowDefinition Height="Auto"/> <!-- 6 inyeccion 6-->
+                                    <RowDefinition Height="20"/> <!-- 7 separador-->
+                                    <RowDefinition Height="Auto"/> <!-- 8 Promedio-->
+                                    <RowDefinition Height="20"/> <!-- 9 separador-->
+                                    <RowDefinition Height="Auto"/> <!-- 10 RSD%-->
+                                    <RowDefinition Height="25"/> <!-- 11 Separador-->
+                                    <RowDefinition Height="50"/> <!-- 12 Boton-->
+                                    <RowDefinition Height="25"/> <!-- 13 Ajuste-->
+                                    <RowDefinition Height="5"/> <!-- 14 Separador-->
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="10"/> <!-- Columna de Separacion -->
+                                    <ColumnDefinition Width="Auto"/>
+                                </Grid.ColumnDefinitions>
+                                <!-- #### Areas #### -->
+                                <!-- #### Labels #### -->
+                                <TextBlock Text="Inyeccion 1" FontWeight="DemiBold" Grid.Row="0" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                <TextBlock Text="Inyeccion 2" FontWeight="DemiBold" Grid.Row="1" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                <TextBlock Text="Inyeccion 3" FontWeight="DemiBold" Grid.Row="2" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                <TextBlock Text="Inyeccion 4" FontWeight="DemiBold" Grid.Row="3" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                <TextBlock Text="Inyeccion 5" FontWeight="DemiBold" Grid.Row="4" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                <TextBlock Text="Inyeccion 6" FontWeight="DemiBold" Grid.Row="5" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                <TextBlock Text="Promedio" FontWeight="DemiBold" Grid.Row="8" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                <TextBlock Text="RSD (%)" FontWeight="DemiBold" Grid.Row="10" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                <!-- #### TextBox #### -->
+                                <TextBox x:Name="txtInyec1" TextChanged="CalcularPromediosSTDT" MaxLength="12" PreviewTextInput="SoloEnteros" PreviewKeyDown="ControlarPegado" Grid.Column="2" Grid.Row="0" Width="90" Margin="0,4,16,4"/>
+                                <TextBox x:Name="txtInyec2" TextChanged="CalcularPromediosSTDT" MaxLength="12" PreviewTextInput="SoloEnteros" PreviewKeyDown="ControlarPegado" Grid.Column="2" Grid.Row="1" Width="90" Margin="0,4,16,4"/>
+                                <TextBox x:Name="txtInyec3" TextChanged="CalcularPromediosSTDT" MaxLength="12" PreviewTextInput="SoloEnteros" PreviewKeyDown="ControlarPegado" Grid.Column="2" Grid.Row="2" Width="90" Margin="0,4,16,4"/>
+                                <TextBox x:Name="txtInyec4" TextChanged="CalcularPromediosSTDT" MaxLength="12" PreviewTextInput="SoloEnteros" PreviewKeyDown="ControlarPegado" Grid.Column="2" Grid.Row="3" Width="90" Margin="0,4,16,4"/>
+                                <TextBox x:Name="txtInyec5" TextChanged="CalcularPromediosSTDT" MaxLength="12" PreviewTextInput="SoloEnteros" PreviewKeyDown="ControlarPegado" Grid.Column="2" Grid.Row="4" Width="90" Margin="0,4,16,4"/>
+                                <TextBox x:Name="txtInyec6" TextChanged="CalcularPromediosSTDT" MaxLength="12" PreviewTextInput="SoloEnteros" PreviewKeyDown="ControlarPegado" Grid.Column="2" Grid.Row="5" Width="90" Margin="0,4,16,4"/>
+                                <!-- Resultados -->
+                                <TextBox x:Name="txtPromedioSTDT" Grid.Column="2" Grid.Row="8" Width="90" Height="Auto" Margin="0,4,16,0" Foreground="DarkBlue" Background="LightGray" BorderBrush="Gray" IsReadOnly="True" Focusable="False"/>
+                                <TextBox x:Name="txtRsdSTDT" Grid.Column="2" Grid.Row="10" Width="90" Margin="0,4,16,4" Foreground="DarkBlue" Background="LightGray" BorderBrush="Gray" IsReadOnly="True" Focusable="False"/>
+                                <!-- #### Boton #### -->
+                                <Button  x:Name="btnCalcular1" Click="btnCalcular_Click" Focusable="False" Content="Calcular" Grid.Column="2" Grid.Row="12" Width="90" Height="Auto" Margin="0,4,16,0"/>
+                            </Grid>    
+                        </StackPanel>
+                        <!-- Columna 2 ############################################################################################################-->
+                        <!-- ########## Encabezado #############-->
+                        <TextBlock Text="Áreas STD Control" FontWeight="DemiBold" Grid.Row="0" Grid.Column="2" HorizontalAlignment="Center"/>
+                        <!-- Areas STD 2 -->
+                        <StackPanel Grid.Column="2" Grid.Row="1">
+                            <Grid Column="0" Row="1" Height="Auto">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"/> <!-- 1 inyeccion 1-->
+                                    <RowDefinition Height="Auto"/> <!-- 2 inyeccion 2-->
+                                    <RowDefinition Height="125"/> <!-- 3 separador-->
+                                    <RowDefinition Height="Auto"/> <!-- 4 Promedio-->
+                                    <RowDefinition Height="20"/> <!-- 5 separador-->
+                                    <RowDefinition Height="Auto"/> <!-- 6 RSD%-->
+                                    <RowDefinition Height="25"/> <!-- 7 Separador-->
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="10"/> <!-- Columna de Separacion -->
+                                    <ColumnDefinition Width="Auto"/>
+                                </Grid.ColumnDefinitions>
+                                <!-- #### Areas #### -->
+                                <!-- #### Labels #### -->
+                                <TextBlock Text="Inyeccion 1" FontWeight="DemiBold" Grid.Row="0" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                <TextBlock Text="Inyeccion 2" FontWeight="DemiBold" Grid.Row="1" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                <TextBlock Text="Promedio" FontWeight="DemiBold" Grid.Row="4" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                <TextBlock Text="Desviacion (%)" FontWeight="DemiBold" Grid.Row="6" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                <!-- #### TextBox #### -->
+                                <TextBox x:Name="txtInyec1_2" TextChanged="CalcularPromediosSTDC" MaxLength="12" PreviewTextInput="SoloEnteros" PreviewKeyDown="ControlarPegado" Grid.Column="2" Grid.Row="0" Width="90" Margin="0,4,16,4"/>
+                                <TextBox x:Name="txtInyec2_2" TextChanged="CalcularPromediosSTDC" MaxLength="12" PreviewTextInput="SoloEnteros" PreviewKeyDown="ControlarPegado" Grid.Column="2" Grid.Row="1" Width="90" Margin="0,4,16,4"/>
+                                <!-- Resultados -->
+                                <TextBox x:Name="txtPromedioSTDC" Grid.Column="2" Grid.Row="4" Width="90" Height="Auto" Margin="0,4,16,0" Foreground="DarkBlue" Background="LightGray" BorderBrush="Gray" IsReadOnly="True" Focusable="False"/>
+                                <TextBox x:Name="txtDifPorcentual" Grid.Column="2" Grid.Row="6" Width="90" Margin="0,4,16,4" Foreground="DarkBlue" Background="LightGray" BorderBrush="Gray" IsReadOnly="True" Focusable="False"/>
+                            </Grid>    
+                        </StackPanel>
+                        <!-- Columna 4 ############################################################################################################-->
+                        <!-- ########## Encabezado #############-->
+                        <TextBlock Text="Información de STDs" FontWeight="DemiBold" Grid.Row="0" Grid.Column="4" HorizontalAlignment="Center"/>
+                        <StackPanel Grid.Column="4" Grid.Row="1">
+                            <Grid Column="0" Row="1" Height="Auto">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"/> <!-- 1 Peso estandar 1-->
+                                    <RowDefinition Height="Auto"/> <!-- 2 Peso estandar 2-->
+                                    <RowDefinition Height="Auto"/> <!-- 3 Potencia-->
+                                    <RowDefinition Height="Auto"/> <!-- 4 Peso Molecular Base-->
+                                    <RowDefinition Height="Auto"/> <!-- 5 Peso Molecular Sal-->
+                                    <RowDefinition Height="Auto"/> <!-- 6 Matraz 1-->
+                                    <RowDefinition Height="Auto"/> <!-- 7 Alicuota-->
+                                    <RowDefinition Height="Auto"/> <!-- 8 Matraz 2-->
+                                    <RowDefinition Height="Auto"/> <!-- 9 Alicuota-->
+                                    <RowDefinition Height="Auto"/> <!-- 10 Matraz 3-->
+                                    <RowDefinition Height="Auto"/> <!-- 11 Separador-->
+                                    <RowDefinition Height="Auto"/> <!-- 12 Concentracion-->
+                                    <RowDefinition Height="Auto"/> <!-- 13 Factor-->
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="10"/> <!-- Columna de Separacion -->
+                                    <ColumnDefinition Width="Auto"/>
+                                </Grid.ColumnDefinitions>
+                                <!-- #### Registros Estandar #### -->
+                                <!-- #### Labels #### -->
+                                <TextBlock Text="Peso STD 1" FontWeight="DemiBold" Grid.Row="0" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                <TextBlock Text="Peso STD 2" FontWeight="DemiBold" Grid.Row="1" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                <TextBlock Text="Potencia (%)" FontWeight="DemiBold" Grid.Row="2" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                <TextBlock Text="PM Base" FontWeight="DemiBold" Grid.Row="3" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                <TextBlock Text="PM Sal" FontWeight="DemiBold" Grid.Row="4" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                <TextBlock Text="Matraz 1" FontWeight="DemiBold" Grid.Row="5" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                <TextBlock Text="Alicuota 1" FontWeight="DemiBold" Grid.Row="6" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                <TextBlock Text="Matraz 2" FontWeight="DemiBold" Grid.Row="7" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                <TextBlock Text="Alicuota 2" FontWeight="DemiBold" Grid.Row="8" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                <TextBlock Text="Matraz 3" FontWeight="DemiBold" Grid.Row="9" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                <TextBlock Text="Concentracion" FontWeight="DemiBold" Grid.Row="11" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                <TextBlock Text="F. Conversion" FontWeight="DemiBold" Grid.Row="12" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                <!-- #### TextBox #### -->
+                                <TextBox x:Name="txtPesoSTDT" PreviewTextInput="Dec3_PreviewTextInput" PreviewKeyDown="Dec3_PreviewKeyDown" LostFocus="Dec3_LostFocus" Grid.Column="2" Grid.Row="0" Width="90" Margin="0,4,16,4"/>
+                                <TextBox x:Name="txtPesoSTDC" PreviewTextInput="Dec3_PreviewTextInput" PreviewKeyDown="Dec3_PreviewKeyDown" LostFocus="Dec3_LostFocus" Grid.Column="2" Grid.Row="1" Width="90" Margin="0,4,16,4"/>
+                                <TextBox x:Name="txtPotencia" TextChanged="CalcularDifPorcentual" PreviewTextInput="Dec2_PreviewTextInput" PreviewKeyDown="Dec2_PreviewKeyDown" LostFocus="Dec2_LostFocus" Grid.Column="2" Grid.Row="2" Width="90" Margin="0,4,16,4"/>
+                                <TextBox x:Name="txtPMbase" PreviewTextInput="Dec2_PreviewTextInput" PreviewKeyDown="Dec2_PreviewKeyDown" LostFocus="Dec2_LostFocus" Grid.Column="2" Grid.Row="3" Width="90" Margin="0,4,16,4"/>
+                                <TextBox x:Name="txtPMsal" PreviewTextInput="Dec2_PreviewTextInput" PreviewKeyDown="Dec2_PreviewKeyDown" LostFocus="Dec2_LostFocus" Grid.Column="2" Grid.Row="4" Width="90" Margin="0,4,16,4"/>
+                                <TextBox x:Name="txtMatraz1" PreviewTextInput="Int_PreviewTextInput" PreviewKeyDown="Int_PreviewKeyDown" LostFocus="Int_LostFocus_AddMl" Grid.Column="2" Grid.Row="5" Width="90" Margin="0,4,16,4"/>
+                                <TextBox x:Name="txtAlicuota1" PreviewTextInput="Int_PreviewTextInput" PreviewKeyDown="Int_PreviewKeyDown" LostFocus="Int_LostFocus_AddMl" Grid.Column="2" Grid.Row="6" Width="90" Margin="0,4,16,4"/>
+                                <TextBox x:Name="txtMatraz2" PreviewTextInput="Int_PreviewTextInput" PreviewKeyDown="Int_PreviewKeyDown" LostFocus="Int_LostFocus_AddMl" Grid.Column="2" Grid.Row="7" Width="90" Margin="0,4,16,4"/>
+                                <TextBox x:Name="txtAlicuota2" PreviewTextInput="Int_PreviewTextInput" PreviewKeyDown="Int_PreviewKeyDown" LostFocus="Int_LostFocus_AddMl" Grid.Column="2" Grid.Row="8" Width="90" Margin="0,4,16,4"/>
+                                <TextBox x:Name="txtMatraz3" TextChanged="CalcularConcentracion" PreviewTextInput="Int_PreviewTextInput" PreviewKeyDown="Int_PreviewKeyDown" LostFocus="Int_LostFocus_AddMl" Grid.Column="2" Grid.Row="9" Width="90" Margin="0,4,16,4"/>
+                                <!-- Resultados -->
+                                <TextBox x:Name="txtConcentracion" Grid.Column="2" Grid.Row="11" Width="90" Height="Auto" Margin="0,4,16,0" Foreground="DarkBlue" Background="LightGray" BorderBrush="Gray" IsReadOnly="True" Focusable="False"/>
+                                <TextBox x:Name="txtFactor" Grid.Column="2" Grid.Row="12" Width="90" Height="Auto" Margin="0,4,16,0" Foreground="DarkBlue" Background="LightGray" BorderBrush="Gray" IsReadOnly="True" Focusable="False"/>
+                            </Grid>    
+                        </StackPanel>
+                    </Grid>
+                </GroupBox>
+            </Grid>
+        </Grid>    
+            <!-- ############################################################## PARTE 2 ####################################################### -->
+        <Grid Margin="12" Column="2">
+            <!-- Inicio Datos de Estandares, Areas y Muestras -->
+            <Grid Margin="0" Column="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/> <!-- Áreas -->
+                    <ColumnDefinition Width="0"/> <!-- Separador-->
+                    <ColumnDefinition Width="Auto"/> <!-- Diluciones Muestra -->
+                </Grid.ColumnDefinitions>
+                <GroupBox Header="Estándares de Trabajo" Margin="0" Padding="5" HorizontalAlignment="Left" VerticalAlignment="Top">
+                    <Grid Height="Auto">
+                        <!-- Columnas -->
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/><!-- 0 -->
+                            <ColumnDefinition Width="10"/> <!-- Columna de Separacion -->
+                            <ColumnDefinition Width="Auto"/><!-- 2 -->
+                            <ColumnDefinition Width="10"/> <!-- Columna de Separacion -->
+                            <ColumnDefinition Width="Auto"/><!-- 4 -->
+                        </Grid.ColumnDefinitions>
+                        <!-- Celdas -->
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/> <!-- Fila 0 -->
+                            <RowDefinition Height="Auto"/> <!-- Fila 1 -->
+                        </Grid.RowDefinitions>
+                        <!-- Columna 0 ##############################################################################  -->
+                        <!-- ########## Encabezado #############-->
+                        <TextBlock Text="Áreas STD Trabajo" FontWeight="DemiBold" Grid.Row="0" Grid.Column="0" HorizontalAlignment="Center"/>
+                        <!-- Areas STD 1 -->
+                        <StackPanel Grid.Column="0" Grid.Row="1">
+                            <Grid Column="0" Row="1" Height="Auto">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"/> <!-- 1 inyeccion 1-->
+                                    <RowDefinition Height="Auto"/> <!-- 2 inyeccion 2-->
+                                    <RowDefinition Height="Auto"/> <!-- 3 inyeccion 3-->
+                                    <RowDefinition Height="Auto"/> <!-- 4 inyeccion 4-->
+                                    <RowDefinition Height="Auto"/> <!-- 5 inyeccion 5-->
+                                    <RowDefinition Height="Auto"/> <!-- 6 inyeccion 6-->
+                                    <RowDefinition Height="20"/> <!-- 7 separador-->
+                                    <RowDefinition Height="Auto"/> <!-- 8 Promedio-->
+                                    <RowDefinition Height="20"/> <!-- 9 separador-->
+                                    <RowDefinition Height="Auto"/> <!-- 10 RSD%-->
+                                    <RowDefinition Height="25"/> <!-- 11 Separador-->
+                                    <RowDefinition Height="50"/> <!-- 12 Boton-->
+                                    <RowDefinition Height="25"/> <!-- 13 Ajuste-->
+                                    <RowDefinition Height="5"/> <!-- 14 Separador-->
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="10"/> <!-- Columna de Separacion -->
+                                    <ColumnDefinition Width="Auto"/>
+                                </Grid.ColumnDefinitions>
+                                <!-- #### Areas #### -->
+                                <!-- #### Labels #### -->
+                                <TextBlock Text="Inyeccion 1" FontWeight="DemiBold" Grid.Row="0" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                <TextBlock Text="Inyeccion 2" FontWeight="DemiBold" Grid.Row="1" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                <TextBlock Text="Inyeccion 3" FontWeight="DemiBold" Grid.Row="2" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                <TextBlock Text="Inyeccion 4" FontWeight="DemiBold" Grid.Row="3" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                <TextBlock Text="Inyeccion 5" FontWeight="DemiBold" Grid.Row="4" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                <TextBlock Text="Inyeccion 6" FontWeight="DemiBold" Grid.Row="5" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                <TextBlock Text="Promedio" FontWeight="DemiBold" Grid.Row="8" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                <TextBlock Text="RSD (%)" FontWeight="DemiBold" Grid.Row="10" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                <!-- #### TextBox #### -->
+                                <TextBox x:Name="txtInyec13" TextChanged="CalcularPromediosSTDT" MaxLength="12" PreviewTextInput="SoloEnteros" PreviewKeyDown="ControlarPegado" Grid.Column="2" Grid.Row="0" Width="90" Margin="0,4,16,4"/>
+                                <TextBox x:Name="txtInyec23" TextChanged="CalcularPromediosSTDT" MaxLength="12" PreviewTextInput="SoloEnteros" PreviewKeyDown="ControlarPegado" Grid.Column="2" Grid.Row="1" Width="90" Margin="0,4,16,4"/>
+                                <TextBox x:Name="txtInyec33" TextChanged="CalcularPromediosSTDT" MaxLength="12" PreviewTextInput="SoloEnteros" PreviewKeyDown="ControlarPegado" Grid.Column="2" Grid.Row="2" Width="90" Margin="0,4,16,4"/>
+                                <TextBox x:Name="txtInyec43" TextChanged="CalcularPromediosSTDT" MaxLength="12" PreviewTextInput="SoloEnteros" PreviewKeyDown="ControlarPegado" Grid.Column="2" Grid.Row="3" Width="90" Margin="0,4,16,4"/>
+                                <TextBox x:Name="txtInyec53" TextChanged="CalcularPromediosSTDT" MaxLength="12" PreviewTextInput="SoloEnteros" PreviewKeyDown="ControlarPegado" Grid.Column="2" Grid.Row="4" Width="90" Margin="0,4,16,4"/>
+                                <TextBox x:Name="txtInyec63" TextChanged="CalcularPromediosSTDT" MaxLength="12" PreviewTextInput="SoloEnteros" PreviewKeyDown="ControlarPegado" Grid.Column="2" Grid.Row="5" Width="90" Margin="0,4,16,4"/>
+                                <!-- Resultados -->
+                                <TextBox x:Name="txtPromedioSTDT3" Grid.Column="2" Grid.Row="8" Width="90" Height="Auto" Margin="0,4,16,0" Foreground="DarkBlue" Background="LightGray" BorderBrush="Gray" IsReadOnly="True" Focusable="False"/>
+                                <TextBox x:Name="txtRsdSTDT3" Grid.Column="2" Grid.Row="10" Width="90" Margin="0,4,16,4" Foreground="DarkBlue" Background="LightGray" BorderBrush="Gray" IsReadOnly="True" Focusable="False"/>
+                                <!-- #### Boton #### -->
+                                <Button  x:Name="btnCalcular" Click="btnCalcular_Click" Focusable="False" Content="Calcular" Grid.Column="2" Grid.Row="12" Width="90" Height="Auto" Margin="0,4,16,0"/>
+                            </Grid>    
+                        </StackPanel>
+                        <!-- Columna 2 ############################################################################################################-->
+                        <!-- ########## Encabezado #############-->
+                        <TextBlock Text="Áreas STD Control" FontWeight="DemiBold" Grid.Row="0" Grid.Column="2" HorizontalAlignment="Center"/>
+                        <!-- Areas STD 2 -->
+                        <StackPanel Grid.Column="2" Grid.Row="1">
+                            <Grid Column="0" Row="1" Height="Auto">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"/> <!-- 1 inyeccion 1-->
+                                    <RowDefinition Height="Auto"/> <!-- 2 inyeccion 2-->
+                                    <RowDefinition Height="125"/> <!-- 3 separador-->
+                                    <RowDefinition Height="Auto"/> <!-- 4 Promedio-->
+                                    <RowDefinition Height="20"/> <!-- 5 separador-->
+                                    <RowDefinition Height="Auto"/> <!-- 6 RSD%-->
+                                    <RowDefinition Height="25"/> <!-- 7 Separador-->
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="10"/> <!-- Columna de Separacion -->
+                                    <ColumnDefinition Width="Auto"/>
+                                </Grid.ColumnDefinitions>
+                                <!-- #### Areas #### -->
+                                <!-- #### Labels #### -->
+                                <TextBlock Text="Inyeccion 1" FontWeight="DemiBold" Grid.Row="0" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                <TextBlock Text="Inyeccion 2" FontWeight="DemiBold" Grid.Row="1" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                <TextBlock Text="Promedio" FontWeight="DemiBold" Grid.Row="4" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                <TextBlock Text="Desviacion (%)" FontWeight="DemiBold" Grid.Row="6" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                <!-- #### TextBox #### -->
+                                <TextBox x:Name="txtInyec1_23" TextChanged="CalcularPromediosSTDC" MaxLength="12" PreviewTextInput="SoloEnteros" PreviewKeyDown="ControlarPegado" Grid.Column="2" Grid.Row="0" Width="90" Margin="0,4,16,4"/>
+                                <TextBox x:Name="txtInyec2_23" TextChanged="CalcularPromediosSTDC" MaxLength="12" PreviewTextInput="SoloEnteros" PreviewKeyDown="ControlarPegado" Grid.Column="2" Grid.Row="1" Width="90" Margin="0,4,16,4"/>
+                                <!-- Resultados -->
+                                <TextBox x:Name="txtPromedioSTDC3" Grid.Column="2" Grid.Row="4" Width="90" Height="Auto" Margin="0,4,16,0" Foreground="DarkBlue" Background="LightGray" BorderBrush="Gray" IsReadOnly="True" Focusable="False"/>
+                                <TextBox x:Name="txtDifPorcentual3" Grid.Column="2" Grid.Row="6" Width="90" Margin="0,4,16,4" Foreground="DarkBlue" Background="LightGray" BorderBrush="Gray" IsReadOnly="True" Focusable="False"/>
+                            </Grid>    
+                        </StackPanel>
+                        <!-- Columna 4 ############################################################################################################-->
+                        <!-- ########## Encabezado #############-->
+                        <TextBlock Text="Información de STDs" FontWeight="DemiBold" Grid.Row="0" Grid.Column="4" HorizontalAlignment="Center"/>
+                        <StackPanel Grid.Column="4" Grid.Row="1">
+                            <Grid Column="0" Row="1" Height="Auto">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"/> <!-- 1 Peso estandar 1-->
+                                    <RowDefinition Height="Auto"/> <!-- 2 Peso estandar 2-->
+                                    <RowDefinition Height="Auto"/> <!-- 3 Potencia-->
+                                    <RowDefinition Height="Auto"/> <!-- 4 Peso Molecular Base-->
+                                    <RowDefinition Height="Auto"/> <!-- 5 Peso Molecular Sal-->
+                                    <RowDefinition Height="Auto"/> <!-- 6 Matraz 1-->
+                                    <RowDefinition Height="Auto"/> <!-- 7 Alicuota-->
+                                    <RowDefinition Height="Auto"/> <!-- 8 Matraz 2-->
+                                    <RowDefinition Height="Auto"/> <!-- 9 Alicuota-->
+                                    <RowDefinition Height="Auto"/> <!-- 10 Matraz 3-->
+                                    <RowDefinition Height="Auto"/> <!-- 11 Separador-->
+                                    <RowDefinition Height="Auto"/> <!-- 12 Concentracion-->
+                                    <RowDefinition Height="Auto"/> <!-- 13 Factor-->
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="10"/> <!-- Columna de Separacion -->
+                                    <ColumnDefinition Width="Auto"/>
+                                </Grid.ColumnDefinitions>
+                                <!-- #### Registros Estandar #### -->
+                                <!-- #### Labels #### -->
+                                <TextBlock Text="Peso STD 1" FontWeight="DemiBold" Grid.Row="0" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                <TextBlock Text="Peso STD 2" FontWeight="DemiBold" Grid.Row="1" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                <TextBlock Text="Potencia (%)" FontWeight="DemiBold" Grid.Row="2" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                <TextBlock Text="PM Base" FontWeight="DemiBold" Grid.Row="3" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                <TextBlock Text="PM Sal" FontWeight="DemiBold" Grid.Row="4" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                <TextBlock Text="Matraz 1" FontWeight="DemiBold" Grid.Row="5" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                <TextBlock Text="Alicuota 1" FontWeight="DemiBold" Grid.Row="6" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                <TextBlock Text="Matraz 2" FontWeight="DemiBold" Grid.Row="7" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                <TextBlock Text="Alicuota 2" FontWeight="DemiBold" Grid.Row="8" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                <TextBlock Text="Matraz 3" FontWeight="DemiBold" Grid.Row="9" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                <TextBlock Text="Concentracion" FontWeight="DemiBold" Grid.Row="11" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                <TextBlock Text="F. Conversion" FontWeight="DemiBold" Grid.Row="12" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                <!-- #### TextBox #### -->
+                                <TextBox x:Name="txtPesoSTDT3" PreviewTextInput="Dec3_PreviewTextInput" PreviewKeyDown="Dec3_PreviewKeyDown" LostFocus="Dec3_LostFocus" Grid.Column="2" Grid.Row="0" Width="90" Margin="0,4,16,4"/>
+                                <TextBox x:Name="txtPesoSTDC3" PreviewTextInput="Dec3_PreviewTextInput" PreviewKeyDown="Dec3_PreviewKeyDown" LostFocus="Dec3_LostFocus" Grid.Column="2" Grid.Row="1" Width="90" Margin="0,4,16,4"/>
+                                <TextBox x:Name="txtPotencia3" TextChanged="CalcularDifPorcentual" PreviewTextInput="Dec2_PreviewTextInput" PreviewKeyDown="Dec2_PreviewKeyDown" LostFocus="Dec2_LostFocus" Grid.Column="2" Grid.Row="2" Width="90" Margin="0,4,16,4"/>
+                                <TextBox x:Name="txtPMbase3" PreviewTextInput="Dec2_PreviewTextInput" PreviewKeyDown="Dec2_PreviewKeyDown" LostFocus="Dec2_LostFocus" Grid.Column="2" Grid.Row="3" Width="90" Margin="0,4,16,4"/>
+                                <TextBox x:Name="txtPMsal3" PreviewTextInput="Dec2_PreviewTextInput" PreviewKeyDown="Dec2_PreviewKeyDown" LostFocus="Dec2_LostFocus" Grid.Column="2" Grid.Row="4" Width="90" Margin="0,4,16,4"/>
+                                <TextBox x:Name="txtMatraz13" PreviewTextInput="Int_PreviewTextInput" PreviewKeyDown="Int_PreviewKeyDown" LostFocus="Int_LostFocus_AddMl" Grid.Column="2" Grid.Row="5" Width="90" Margin="0,4,16,4"/>
+                                <TextBox x:Name="txtAlicuota13" PreviewTextInput="Int_PreviewTextInput" PreviewKeyDown="Int_PreviewKeyDown" LostFocus="Int_LostFocus_AddMl" Grid.Column="2" Grid.Row="6" Width="90" Margin="0,4,16,4"/>
+                                <TextBox x:Name="txtMatraz23" PreviewTextInput="Int_PreviewTextInput" PreviewKeyDown="Int_PreviewKeyDown" LostFocus="Int_LostFocus_AddMl" Grid.Column="2" Grid.Row="7" Width="90" Margin="0,4,16,4"/>
+                                <TextBox x:Name="txtAlicuota23" PreviewTextInput="Int_PreviewTextInput" PreviewKeyDown="Int_PreviewKeyDown" LostFocus="Int_LostFocus_AddMl" Grid.Column="2" Grid.Row="8" Width="90" Margin="0,4,16,4"/>
+                                <TextBox x:Name="txtMatraz33" TextChanged="CalcularConcentracion" PreviewTextInput="Int_PreviewTextInput" PreviewKeyDown="Int_PreviewKeyDown" LostFocus="Int_LostFocus_AddMl" Grid.Column="2" Grid.Row="9" Width="90" Margin="0,4,16,4"/>
+                                <!-- Resultados -->
+                                <TextBox x:Name="txtConcentracion3" Grid.Column="2" Grid.Row="11" Width="90" Height="Auto" Margin="0,4,16,0" Foreground="DarkBlue" Background="LightGray" BorderBrush="Gray" IsReadOnly="True" Focusable="False"/>
+                                <TextBox x:Name="txtFactor3" Grid.Column="2" Grid.Row="12" Width="90" Height="Auto" Margin="0,4,16,0" Foreground="DarkBlue" Background="LightGray" BorderBrush="Gray" IsReadOnly="True" Focusable="False"/>
+                            </Grid>    
+                        </StackPanel>
+                    </Grid>
+                </GroupBox>
+            </Grid>
+        </Grid>    
+    </Grid>        
+</Window>

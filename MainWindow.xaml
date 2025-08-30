@@ -1,0 +1,28 @@
+﻿<Window x:Class="Validaciones.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Validaciones"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid Margin="16">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto">
+            </RowDefinition>
+        </Grid.RowDefinitions>
+        
+        <TextBlock Text="Panel de Validaciones" FontSize="22" FontWeight="Bold" Margin="0,0,0,12" TextAlignment="Center"/>
+        <UniformGrid Grid.Row="1" Columns="3" Rows="2" Margin="0,45,0,0">
+            <Button x:Name="btnExactitud" Content="Exactitud" Click="btnExactitud_Click" Margin="8"/>
+            <Button Content="Linealidad" Margin="8"/>
+            <Button Content="Precisión Intermedia" Margin="8"/>
+            <Button Content="Prueba de Filtros" Margin="8"/>
+            <Button Content="Estabilidad" Margin="8"/>
+            <Button Content="Valoracion" Margin="8"/>
+            <Button Content="Uniformidad" Margin="8"/>
+            <Button Content="Disolucion" Margin="8"/>
+        </UniformGrid>
+        
+    </Grid>
+</Window>
