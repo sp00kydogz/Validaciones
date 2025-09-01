@@ -20,3 +20,4 @@ D:\Programacion\Validaciones\obj\Debug\net9.0-windows\Validaciones.genruntimecon
 D:\Programacion\Validaciones\obj\Debug\net9.0-windows\ref\Validaciones.dll
 D:\Programacion\Validaciones\obj\Debug\net9.0-windows\ExactitudWindow.g.cs
 D:\Programacion\Validaciones\obj\Debug\net9.0-windows\ExactitudWindow.baml
+D:\Programacion\Validaciones\obj\Debug\net9.0-windows\Validaciones.sourcelink.json
